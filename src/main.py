@@ -70,7 +70,7 @@ with tab1:
                [pedometer](https://www.amazon.com/s?k=pedometers+for+walking&adgrpid=143345993003&hvadid=673563947727&hvdev=c&hvlocphy=9069547&hvnetw=g&hvqmt=b&hvrand=4109935355670741824&hvtargid=kwd-2246640821&hydadcr=22538_13680667&tag=hydglogoo-20&ref=pd_sl_64txzblgf2_b) or 
                 to track your steps.
 
-               As you progress, upload your step count data to plot and visualize your progress! 
+               As you progress, upload your step count data from the log file to plot and visualize your progress! 
 
                """)
 
