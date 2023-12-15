@@ -56,7 +56,7 @@ tiger_img = Path(__file__).parent/  "tiger.jpg"
 tab1, tab2, tab3= st.tabs(["Introduction", "Benefits of Walking", "Tips for Success"])
 
 with tab1:
-   st.header("1 Million Step Challenge")
+   st.header("1 Million Step Challenge :athletic_shoe:")
 
    st.markdown("""
                
