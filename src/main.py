@@ -31,9 +31,11 @@ def _plot_daily_steps(df):
 def _plot_monthly(df):
    #add column for month in 3 letter format
    df['Month'] = pd.to_datetime(df['Date']).dt.strftime('%b')
-   #sort monthly_df in ascending order
-   monthly_df=df.sort_values('Month', ascending=False)
-   fig = px.bar(monthly_df, x='Month', y='Steps') 
+   #group by month and calculate average steps
+   monthly_df=df.groupby('Month')['Steps'].mean().reset_index()
+   monthly_df=monthly_df.sort_values('Month', ascending=False)
+   fig = px.bar(monthly_df, x='Month', y='Steps')
+  
    #set title
    fig.update_layout(title_text='Average Monthly Steps')
    st.plotly_chart(fig,use_container_width=True)
