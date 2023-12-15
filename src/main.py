@@ -70,8 +70,7 @@ with tab1:
                [pedometer](https://www.amazon.com/s?k=pedometers+for+walking&adgrpid=143345993003&hvadid=673563947727&hvdev=c&hvlocphy=9069547&hvnetw=g&hvqmt=b&hvrand=4109935355670741824&hvtargid=kwd-2246640821&hydadcr=22538_13680667&tag=hydglogoo-20&ref=pd_sl_64txzblgf2_b) or 
                 to track your steps.
 
-               As you progress, upload your step count data to plot and visualize your progress! As an example, I've uploaded my step count data from the last 3 month 
-               of 2023.
+               As you progress, upload your step count data to plot and visualize your progress! 
 
                """)
 
@@ -83,22 +82,18 @@ with tab1:
       submitted = st.form_submit_button("Submit")
       if submitted:
          df = pd.read_csv(uploaded_file)
-         
-      else:
-         df = pd.read_csv(default_data)
-
-      avg_daily_steps=_calculate_average_daily_steps(df)
-      total_steps=_calculate_total_steps(df)
+         avg_daily_steps=_calculate_average_daily_steps(df)
+         total_steps=_calculate_total_steps(df)
       
-      col1, col2= st.columns(2)
-      col1.metric("Average Daily Steps", avg_daily_steps )
-      col2.metric("Total Steps", total_steps)
+         col1, col2= st.columns(2)
+         col1.metric("Average Daily Steps", avg_daily_steps )
+         col2.metric("Total Steps", total_steps)
 
 
-      _plot_daily_steps(df)
-      _plot_cumulative_steps(df)
-      _plot_weekly(df)
-      _plot_monthly(df)
+         _plot_daily_steps(df)
+         _plot_cumulative_steps(df)
+         _plot_weekly(df)
+         _plot_monthly(df)
 
 
 with tab2:
