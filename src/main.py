@@ -4,6 +4,24 @@ from pathlib import Path
 import plotly.express as px
 import streamlit as st
 st.set_page_config(layout="wide")
+import datetime, timedelta
+
+
+def _date(num_of_days):
+   #calculate date
+   #get current date
+   current_date = datetime.date.today()
+
+   date = current_date + pd.to_timedelta(num_of_days, unit='d')
+   formatted_date = date.strftime('%Y-%m-%d')
+   return(f"At current pace you will reach a total 1 million steps  on {formatted_date}.")
+   
+
+def _calculate_days_till_1m(df):
+   #calculate days till 1 million steps
+   total_steps = df['Steps'].sum()
+   days_till_1m = (1000000 - total_steps)/df['Steps'].mean()
+   return days_till_1m
 
 def _calculate_average_daily_steps(df):
    #calculate average daily steps
@@ -89,11 +107,14 @@ with tab1:
          col1.metric("Average Daily Steps", avg_daily_steps )
          col2.metric("Total Steps", total_steps)
 
-
+         days=_calculate_days_till_1m(df)
+         outstring=_date(days)
+         st.markdown(outstring)
          _plot_daily_steps(df)
          _plot_cumulative_steps(df)
          _plot_weekly(df)
          _plot_monthly(df)
+         
 
 
 with tab2:
